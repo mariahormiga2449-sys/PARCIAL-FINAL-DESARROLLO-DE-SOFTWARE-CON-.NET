@@ -1,0 +1,87 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="RegistroPeliculasAvalonia.MainWindow"
+        Title="Registro de Películas y Series"
+        Width="1000"
+        Height="650"
+        MinWidth="850"
+        MinHeight="550"
+        WindowStartupLocation="CenterScreen">
+    <Grid RowDefinitions="Auto,*"
+          Margin="25">
+        <StackPanel Grid.Row="0"
+                    Spacing="8"
+                    Margin="0,0,0,20">
+            <TextBlock Text="REGISTRO DE PELÍCULAS Y SERIES"
+                       FontSize="26"
+                       FontWeight="Bold"/>
+
+            <TextBlock Text="Administra tu colección de películas y series"
+                       FontSize="14"
+                       Opacity="0.7"/>
+        </StackPanel>
+        <Grid Grid.Row="1"
+              ColumnDefinitions="300,*"
+              ColumnSpacing="20">
+            <Border Grid.Column="0"
+                    Padding="18"
+                    CornerRadius="10"
+                    BorderBrush="Gray"
+                    BorderThickness="1">
+                <StackPanel Spacing="12">
+                    <TextBlock Text="Datos del contenido"
+                               FontSize="19"
+                               FontWeight="Bold"/>
+                    <TextBlock Text="Título"/>
+                    <TextBox Watermark="Ingrese el título"
+                             Name="txtTitulo"/>
+                    <TextBlock Text="Tipo"/>
+                    <ComboBox Name="cmbTipo"
+                              SelectedIndex="0">
+                        <ComboBoxItem Content="Película"/>
+                        <ComboBoxItem Content="Serie"/>
+                    </ComboBox>
+                    <TextBlock Text="Género"/>
+                    <TextBox Watermark="Ingrese el género"
+                             Name="txtGenero"/>
+                    <TextBlock Text="Año"/>
+                    <TextBox Watermark="Ingrese el año"
+                             Name="txtAnio"/>
+                    <Button Content="Guardar"
+                            Name="btnGuardar"
+                            HorizontalAlignment="Stretch"
+                            Click="BtnGuardar_Click"/>
+                    <Button Content="Modificar"
+                            Name="btnModificar"
+                            HorizontalAlignment="Stretch"
+                            Click="BtnModificar_Click"/>
+                    <Button Content="Eliminar"
+                            Name="btnEliminar"
+                            HorizontalAlignment="Stretch"
+                            Click="BtnEliminar_Click"/>
+                    <Button Content="Limpiar"
+                            Name="btnLimpiar"
+                            HorizontalAlignment="Stretch"
+                            Click="BtnLimpiar_Click"/>
+                </StackPanel>
+            </Border>
+            <Border Grid.Column="1"
+                    Padding="18"
+                    CornerRadius="10"
+                    BorderBrush="Gray"
+                    BorderThickness="1">
+                <StackPanel Spacing="15">
+                    <TextBlock Text="Contenido registrado"
+                               FontSize="19"
+                               FontWeight="Bold"/>
+                   <DataGrid Name="tablaContenido"
+                             AutoGenerateColumns="True"
+                             IsReadOnly="True"
+                             SelectionMode="Single"
+                             SelectionChanged="TablaContenido_SelectionChanged"
+                             Height="450"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>
